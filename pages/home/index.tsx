@@ -28,7 +28,7 @@ const Index: NextPage<Props> = ({}) => {
   return (
     <>
       <Layout>
-        <div>Inloggad som {session?.user?.email}</div>
+        {/* <div>Inloggad som {session?.user?.email}</div> */}
 
         <RubrikRecepieFormView
           displayExpl={action === "explore" ? "absolute" : "hidden"}

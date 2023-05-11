@@ -86,25 +86,27 @@ const RubrikRecepieFormView = (props: Props) => {
       <div
         className={`relative flex flex-col gap-10 items-center pt-3 ${props.displaySearchBar} `}
       >
-        <img
-          src="\Frame 27.png"
-          alt="search"
-          className="absolute left-14 py-[8px]"
-        />
+        <form className="flex justify-center w-full px-4" onSubmit={onSearch}>
+          <div className=" flex justify-between w-full">
+            <img
+              src="\Frame 27.png"
+              alt="search"
+              className="absolute left-10 top-[1.2rem] py-[8px]"
+            />
 
-        <img
-          onClick={() => handleClick()}
-          src="\extitSearch.png"
-          alt="search"
-          className="absolute right-14 py-[9px]"
-        />
+            <img
+              onClick={() => handleClick()}
+              src="\extitSearch.png"
+              alt="search"
+              className="absolute right-10 py-[9px] top-[1.2rem]"
+            />
 
-        <form className="flex justify-center w-80" onSubmit={onSearch}>
-          <input
-            value={searchQuery}
-            onChange={(event) => setSearchQuery(event.target.value)}
-            className="px-10 py-1 flex-1 bg-primaryPink rounded-full"
-          />
+            <input
+              value={searchQuery}
+              onChange={(event) => setSearchQuery(event.target.value)}
+              className="px-10 py-1 pb-4 flex-1 bg-white shadow-md shadow-black/40 rounded-full w-full "
+            />
+          </div>
         </form>
       </div>
       <div

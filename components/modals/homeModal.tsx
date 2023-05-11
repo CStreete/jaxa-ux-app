@@ -127,9 +127,66 @@ const RenderOutRecepiesModals: NextPage<recepieProps> = ({}) => {
   }
 
   return (
-    <div className="bg-anotherpink flex items-center flex-col justify-center space-y-4">
+    <div
+      className={`bg-anotherpink flex items-center flex-col justify-center space-y-4`}
+    >
       <div className="">
-        {data.map((item) => (
+        <div className="flex justify-center space-x-4 mx-4 ">
+          {/* Button för "Pasta" category */}
+          <button
+            type="button"
+            className={` p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
+            
+              ${button1Active ? "bg-primaryPink" : "bg-white"}
+
+            `}
+            onClick={() => {
+              handleCategoryFilter("Pasta")
+              handleButton1Click()
+            }}
+          >
+            Pasta
+          </button>
+
+          {/* Button för "Vegetariskt" category */}
+          <button
+            type="button"
+            className={`p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
+            ${button2Active ? "bg-primaryPink" : "bg-white"}
+            `}
+            onClick={() => {
+              handleCategoryFilter("Vegetariskt")
+              handleButton2Click()
+            }}
+          >
+            Vegetariskt
+          </button>
+          {/* Button för "Fågel" category */}
+          <button
+            type="button"
+            className={` p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
+          ${button3Active ? "bg-primaryPink" : "bg-white"}
+          }`}
+            onClick={() => {
+              handleCategoryFilter("Fågel")
+              handleButton3Click()
+            }}
+          >
+            Fågel
+          </button>
+
+          {/* Button för "Extra" category */}
+          <button
+            className="w-9 h-9 bg-white mt-5 rounded-full bottom-2 right-2 shadow-lg focus:border-none border-[1px]"
+            type="button"
+            onClick={handleToggle}
+          >
+            <span className="text-secondaryBlack text-xl">+</span>
+          </button>
+        </div>
+
+        {/* Extra */}
+        {showMoreCategories && (
           <div
             data-modal
             className=" top-0 w-full h-auto mt-[17rem] bg-anotherpink rounded-3xl  fixed items-center justify-center z-10 focus:border-none border-[3px] shadow-2xl shadow-black"
@@ -280,7 +337,11 @@ const RenderOutRecepiesModals: NextPage<recepieProps> = ({}) => {
                 {item.title}
               </p>
               <div className=" pl-2 pt-1 flex  items-center">
-                <div className="h-4 w-4 bg-crimsonRed rounded-full"></div>
+                <img
+                  src="/Profil icon.png"
+                  alt="profil icon"
+                  className=" h-4 w-4"
+                />
 
                 {/* Vissar author namn */}
                 <p className="pl-4 font-sans text-1xl font-medium">
