@@ -113,14 +113,11 @@ const RecepieModule = ({}) => {
   const onSubmit = async (e: SyntheticEvent) => {
     console.log(recepie.image)
 
-    const data = await fetch(
-      "http://localhost:3000/api/recepies/createrecepie",
-      {
-        method: "POST",
-        body: JSON.stringify(body),
-        headers: { "Content-Type": "application/json" },
-      }
-    )
+    const data = await fetch("/api/recepies/createrecepie", {
+      method: "POST",
+      body: JSON.stringify(body),
+      headers: { "Content-Type": "application/json" },
+    })
     const res = await data.json()
     console.log(res)
   }

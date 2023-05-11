@@ -84,7 +84,7 @@ const RubrikRecepieFormView = (props: Props) => {
 
       {/* search field SEARCH BAR */}
       <div
-        className={`relative flex flex-col gap-10 items-center p-4 ${props.displaySearchBar} `}
+        className={`relative flex flex-col gap-10 items-center pt-3 ${props.displaySearchBar} `}
       >
         <img
           src="\Frame 27.png"
@@ -108,7 +108,7 @@ const RubrikRecepieFormView = (props: Props) => {
         </form>
       </div>
       <div
-        className={`relative flex flex-col gap-10 items-center p-4 ${props.displaySearch} ${props.displaySearchDisabled}`}
+        className={`relative flex flex-col gap-10 items-center ${props.displaySearch} ${props.displaySearchDisabled}`}
       >
         {""}
         {props.isSearchSubmitted && <SearchResultModal />}{" "}
