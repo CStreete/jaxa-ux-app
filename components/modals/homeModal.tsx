@@ -95,7 +95,7 @@ const RenderOutRecepiesModals: NextPage<recepieProps> = ({}) => {
 
   // Function to fetch recipe data from the API
   const recepieData = async () => {
-    const res = await fetch("http://localhost:3000/api/nestedFetch")
+    const res = await fetch("/api/nestedFetch")
     const recepies = await res.json()
     setData(recepies)
     setFilteredData(recepies)
@@ -127,66 +127,9 @@ const RenderOutRecepiesModals: NextPage<recepieProps> = ({}) => {
   }
 
   return (
-    <div
-      className={`bg-anotherpink flex items-center flex-col justify-center space-y-4`}
-    >
-      <div className={``}>
-        <div className="flex justify-center space-x-2">
-          {/* Button för "Pasta" category */}
-          <button
-            type="button"
-            className={` p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
-            
-              ${button1Active ? "bg-primaryPink" : "bg-white"}
-
-            `}
-            onClick={() => {
-              handleCategoryFilter("Pasta")
-              handleButton1Click()
-            }}
-          >
-            Pasta
-          </button>
-
-          {/* Button för "Vegetariskt" category */}
-          <button
-            type="button"
-            className={`p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
-            ${button2Active ? "bg-primaryPink" : "bg-white"}
-            `}
-            onClick={() => {
-              handleCategoryFilter("Vegetariskt")
-              handleButton2Click()
-            }}
-          >
-            Vegetariskt
-          </button>
-          {/* Button för "Fågel" category */}
-          <button
-            type="button"
-            className={` p-1 px-5 rounded-full mt-5 shadow-lg focus:border-none border-[1px] "border-primaryPink" : "border-black/20"
-          ${button3Active ? "bg-primaryPink" : "bg-white"}
-          }`}
-            onClick={() => {
-              handleCategoryFilter("Fågel")
-              handleButton3Click()
-            }}
-          >
-            Fågel
-          </button>
-
-          {/* Button för "Extra" category */}
-          <button
-            className="w-9 h-9 bg-white mt-5 rounded-full bottom-2 right-2 shadow-lg focus:border-none border-[1px]"
-            type="button"
-            onClick={handleToggle}
-          >
-            <span className="text-secondaryBlack text-xl">+</span>
-          </button>
-        </div>
-
-        {/* Extra */}
-        {showMoreCategories && (
+    <div className="bg-anotherpink flex items-center flex-col justify-center space-y-4">
+      <div className="">
+        {data.map((item) => (
           <div
             data-modal
             className=" top-0 w-full h-auto mt-[17rem] bg-anotherpink rounded-3xl  fixed items-center justify-center z-10 focus:border-none border-[3px] shadow-2xl shadow-black"

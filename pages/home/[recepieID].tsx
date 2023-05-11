@@ -71,7 +71,7 @@ const RecepieView = ({}) => {
             >
               {" "}
               <img src="/Vector.png" alt="tillbakaknapp" />{" "}
-            </button>
+            </Link>
 
             <img
               src={data?.image}
